@@ -1,0 +1,25 @@
+info:
+  component: Simple Zuul Proxy Server
+
+cloud:
+  conablefig:
+    failFast: true
+    discovery:
+      end: true
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    home:
+    # every requests will be taken into account
+    # no URL nor Eureka service is set because the filter will be in charge of the route
+      path: /**
+
+server:
+  port: 8080
+
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO
+    info.tcb: DEBUG
